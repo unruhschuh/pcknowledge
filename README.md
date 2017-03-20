@@ -1,11 +1,16 @@
 # PC Knowledge
 
+Here I collect my computer knowledge.
+It is mainly composed of instructions on how to configure stuff, so that the system works I want it to.
+It is inteded to be used by me, but it might be useful to others as well.
+
 ## Clipboard capable Vim on MacOS
+The version of Vim shipped with MacOS is not built with `+clipboard`.
 Install Vim via MacPorts with
 ```
 sudo port install vim +huge
 ```
-Or use homebrew
+or use homebrew
 ```
 brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 ```
@@ -13,6 +18,8 @@ brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 
 
 ## Install gem on MacOS with SIP (System Integrity Protection) enabled
+Nobody has write access in `/usr/bin` anymore.
+Thus we install stuff in `/usr/local/bin`.
 ```
 sudo gem install -n /usr/local/bin GEM_NAME_HERE
 ```
