@@ -16,4 +16,4 @@ From [Stack Exchange](https://superuser.com/questions/421057/install-vim-with-cl
 ```
 sudo gem install -n /usr/local/bin GEM_NAME_HERE
 ```
-From [Stack Overflow](http://stackoverflow.com/a/34234878)
+From [Stack Overflow](http://stackoverflow.com/a/34234878).
