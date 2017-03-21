@@ -1,6 +1,3 @@
-- TOC
-{:toc}
-
 # PC Knowledge
 
 Here I collect my computer knowledge.
