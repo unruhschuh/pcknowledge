@@ -50,3 +50,18 @@ That is, `"$@"` is equivalent to `"$1" "$2" ...`
 If you want to pass all but the first arguments, you can first use `shift` to \"consume\" the first argument, then pass `$@`, the list of remaining arguments to another command.
 
 [Stack Overflow](http://stackoverflow.com/a/3816747)
+
+## Location of bash script file
+The path to the bash script file can be acquired as follows
+```
+#!/bin/bash
+echo "${0%/*}"
+```
+
+## Name of the bash script file
+The name of the bash script file can be acquired as follows
+```
+#!/bin/bash
+echo "${0##/}"
+```
+
