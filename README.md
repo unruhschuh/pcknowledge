@@ -1,3 +1,6 @@
+- TOC
+{:toc}
+
 # PC Knowledge
 
 Here I collect my computer knowledge.
@@ -35,3 +38,18 @@ In order to make `latexmk` work in MacVim with LaTeX-Box I use
 sudo launchctl config user path /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
 ```
 [Stack Exchange](http://apple.stackexchange.com/a/243946)
+
+## Pass on all arguments in bash script
+```
+#!/bin/bash
+command "$@"
+```
+`"$@"` is handled as a special case by the shell.
+From the bash reference manual, special parameters section:
+`'@` ... Expands to the positional parameters, starting from one.
+When the expansion occurs within double quotes, each parameter expands to a separate word.
+That is, `"$@"` is equivalent to `"$1" "$2" ...`
+
+If you want to pass all but the first arguments, you can first use `shift` to \"consume\" the first argument, then pass `$@`, the list of remaining arguments to another command.
+
+[Stack Overflow](http://stackoverflow.com/a/3816747)
