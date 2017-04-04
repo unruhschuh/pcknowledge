@@ -16,6 +16,23 @@ brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
 ```
 [Stack Exchange](https://superuser.com/questions/421057/install-vim-with-clipboard-support-using-macports-in-os-x-10-7-3)
 
+See also [Client server capable Vim on MacOS](#client-server-capable-vim-on-macos)
+
+## Client server capable Vim on MacOS
+The version of Vim shipped with MacOS is not built with `+clientserver`.
+Install Vim via MacPorts with
+```
+sudo port install vim +huge +x11
+```
+or use homebrew
+```
+brew install vim --with-client-server
+```
+[Stack Overflow](http://stackoverflow.com/a/10231902)
+
+Note: This will start X11 anytime Vim is called.
+
+See also [Clipboard capable Vim on MacOS](#clipboard-capable-vim-on-macos)
 
 ## Install gem on MacOS with SIP (System Integrity Protection) enabled
 Nobody has write access in `/usr/bin` anymore.
@@ -65,3 +82,56 @@ The name of the bash script file can be acquired as follows
 echo "${0##/}"
 ```
 
+## Math array spacing in LaTeX
+
+Use `\setlength{\delimitershortfall}{0pt}` in order to fix the spacing in math arrays.
+
+```
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\[
+  \setlength{\delimitershortfall}{0pt}
+  \begin{bmatrix}
+    \dfrac{\partial f}{\partial x}
+    \\[2ex]
+    \dfrac{\partial f}{\partial y}
+  \end{bmatrix}
+\]
+\end{document}
+```
+
+[Stack Exchange](http://tex.stackexchange.com/questions/19457/using-display-style-fraction-in-a-matrix-environment/61290#61290)
+
+## LaTeX labels and legend entries with matlab2tikz
+
+In order to use LaTeX in the labels one has to tell Matlab to not interpret any text
+
+```
+set(0,'defaulttextinterpreter','none')
+```
+
+The above doesn't affect the legend. The following turns off the interpreter for a specific legend.
+
+```
+lh = legend('some text')
+set(lh,'Interpreter','none')
+```
+
+There doesn't seem to be a way to turn it off globally.
+Then use the boolean option `parseStrings' of matlab2tikz.
+
+```
+matlab2tikz('...', 'parseStrings', false)
+```
+
+This way, the labels and legend entries get interpreted by LaTeX exaclty as one writes them in Matlab, e.g.
+
+```
+lh = legend('Chebyshev points over $l$', ...
+            'projection of C. points onto y-axis', ...
+            'Gauss quadrature points')
+set(lh,'Interpreter','none')
+xlabel('$l$')
+ylabel('$d^l$ / $\tau^i$')
+```
