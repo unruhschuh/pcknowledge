@@ -135,3 +135,18 @@ set(lh,'Interpreter','none')
 xlabel('$l$')
 ylabel('$d^l$ / $\tau^i$')
 ```
+
+## MacOS: Dock supersmall
+To make the Dock super small run the following command
+
+```
+defaults write com.apple.dock tilesize -int 1
+killall Dock
+```
+
+To go back to normal size run
+```
+defaults write com.apple.dock tilesize -int 20
+killall Dock
+```
+
