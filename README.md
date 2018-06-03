@@ -12,9 +12,10 @@ sudo port install vim +huge
 ```
 or use homebrew
 ```
-brew install https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb
+brew install vim
 ```
 [Stack Exchange](https://superuser.com/questions/421057/install-vim-with-clipboard-support-using-macports-in-os-x-10-7-3)
+https://raw.github.com/Homebrew/homebrew-dupes/master/vim.rb is deprecated.
 
 See also [Client server capable Vim on MacOS](#client-server-capable-vim-on-macos)
 
